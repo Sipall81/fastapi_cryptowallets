@@ -77,8 +77,8 @@ class SpecificCoin(BaseModel):
 
 class CoinOrdinaryResponse(BaseModel):
     currency: str
-    current_price: Decimal|float
-    price_change_percentage: Decimal
+    current_price: Decimal|float|None = None
+    price_change_percentage: Decimal|None = None
     last_updated: datetime
 
 class CoinDataResponse(BaseModel):
