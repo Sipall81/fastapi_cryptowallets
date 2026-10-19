@@ -1,0 +1,43 @@
+# В .dockerignore (в отличие от .gitignore) шаблон без "**/" действует
+# только в корне контекста сборки, поэтому для вложенных папок
+# (auth/__pycache__, routers/__pycache__ ...) нужен префикс **/
+
+# ── Секреты: в образ не попадают, переменные приходят через env_file ──
+.env
+.env.*
+**/*.pem
+**/*.key
+
+# ── Виртуальные окружения ──
+.venv/
+venv/
+env/
+
+# ── Python-мусор ──
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ── VCS и IDE ──
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# ── Не нужно для работы приложения ──
+tests/
+pytest.ini
+requirements-dev.txt
+**/*.md
+**/*.log
+.DS_Store
+
+# ── Сам Docker-обвес ──
+docker-compose*.yml
+Dockerfile
+.dockerignore

@@ -1,0 +1,39 @@
+# ── Web framework ──
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+python-multipart>=0.0.20
+
+# ── HTTP клиент (для CoinGecko) ──
+httpx>=0.28.1
+
+# ── Pydantic / Settings ──
+pydantic>=2.10.5
+pydantic-settings>=2.7.1
+email-validator>=2.2.0
+
+# ── База данных ──
+sqlalchemy[asyncio]>=2.0.37
+asyncpg>=0.30.0
+greenlet>=3.1.1
+
+# ── Аутентификация ──
+python-jose[cryptography]>=3.3.0
+bcrypt>=4.2.1
+
+# ── Криптография (Fernet для приватных ключей) ──
+cryptography>=44.0.0
+
+# ── Ethereum кошельки ──
+eth-account>=0.13.4
+
+# ── Redis ──
+redis>=5.2.1
+
+# ── RabbitMQ ──
+aio-pika>=9.5.4
+
+# ── Графики (matplotlib для /chart) ──
+matplotlib>=3.10.0
+
+# ── Утилиты ──
+python-dotenv>=1.0.1
