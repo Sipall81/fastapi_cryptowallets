@@ -78,8 +78,8 @@ flowchart LR
 ## Быстрый старт (Docker)
 
 ```bash
-git clone https://github.com/Sipall81/fastapi_cryptowallet.git
-cd fastapi_cryptowallet
+git clone https://github.com/Sipall81/fastapi_cryptowallets.git
+cd fastapi_cryptowallets
 
 cp .env.example .env
 # отредактируйте .env: укажите ключ CoinGecko и сгенерируйте секреты (команды есть внутри файла)
