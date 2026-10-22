@@ -3,8 +3,9 @@ services:
     image: postgres:18
     container_name: fastapi_postgres
     environment:
-      POSTGRES_PASSWORD: Sip120804@
-      POSTGRES_DB: users
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-users}
     ports:
       - "5432:5432"
     volumes:
@@ -39,8 +40,8 @@ services:
       - "5672:5672"
       - "15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-guest}
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     networks:
@@ -59,9 +60,12 @@ services:
     env_file:
       - .env
     depends_on:
-      - postgres
-      - redis
-      - rabbitmq
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
     networks:
       - app-net
     restart: unless-stopped
